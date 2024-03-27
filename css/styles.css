@@ -1,0 +1,79 @@
+body {
+    background-color: #87CFA6;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    color: #1429AF;
+}
+
+div.user p {
+    color: #FF5F11;
+}
+
+/* Tasks */
+section.toDoList-section {
+    text-align: center;
+    justify-content: center;
+    gap: 10em;
+}
+
+/* Priority tasks title */
+
+.title {
+    font-size: 2rem;
+}
+
+div.urgent-tasks h2 {
+    color: #FF0000;
+    /* font-size: 3rem; */
+}
+
+div.important-tasks h2 {
+    color: #FF9900;
+    /* font-size: 2.5rem; */
+}
+
+div.normal-tasks h2 {
+    color: #33107A;
+    /* fonte-size: 2rem; */
+}
+
+div.accessory-tasks h2 {
+    color: #36A116;
+    /* font-size: 1.5rem; */
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    font-size: 1.5rem;
+    list-style-type: none;
+}
+
+/* Options tasks title */
+
+p.add-task {
+    color: #6D0A22;
+}
+
+p.archiv-task {
+    color: #494647;
+}
+
+/* Utils */
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
