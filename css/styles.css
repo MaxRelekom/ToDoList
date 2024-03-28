@@ -24,7 +24,8 @@ section.toDoList-section {
 /* Priority tasks title */
 
 .title {
-    font-size: 2rem;
+    font-size: 2em;
+    font-weight: 900;
 }
 
 div.urgent-tasks h2 {
@@ -58,12 +59,21 @@ li {
 
 /* Options tasks title */
 
+section.options {
+    justify-content: center;
+}
+
 p.add-task {
     color: #6D0A22;
+    font-size: 1.7em;
+    font-weight: 900;
 }
 
 p.archiv-task {
-    color: #494647;
+    font-weight: 500;
+    position: absolute;
+    right: 15em;
+    align-self: center;
 }
 
 /* Utils */
