@@ -87,3 +87,8 @@ p.archiv-task {
     display: flex;
     flex-direction: column;
 }
+
+footer {
+    text-align: center;
+    margin: 2em 0 2em 0;
+}
