@@ -1,6 +1,6 @@
-class Task {
+export class Task {
 
-    constructor(name, priority) {
+    constructor(name = "Task", priority = null) {
         this.name = name;
         this.priority = priority;
     }
