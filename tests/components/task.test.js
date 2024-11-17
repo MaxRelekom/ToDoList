@@ -1,8 +1,9 @@
 // En attente
 // import { jest } from "@jest/"
 
-import "jest";
+import { Task } from "components/Task.js";
 
-test("test1", () => {
-    expect();
-})
+test('init Task', () => {
+    Task t = new Task();
+    expect(1+2).toBe(3);
+  });
