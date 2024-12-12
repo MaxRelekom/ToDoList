@@ -1,8 +1,11 @@
+const TaskPriority = require("../../components/TaskPriority");
+const FakeTasksListLoader = require("./fake/FakeTasksListLoader");
 
 describe("TasksList Loader", () => {
     test("Chargement d'une liste de tâches", () => {
-        loader = new TasksListLoader("normalTasks.json");
-        loader.loadTasksList();
+        const loader = new FakeTasksListLoader(TaskPriority.Normal, ["fakeDatas", "tasksList"], "normalTasks.json")
+        const normalListLoaded = loader.loadTasksList();
         
+        expect(normalListLoaded.getTasks).toHaveLength(2);
     })
 });

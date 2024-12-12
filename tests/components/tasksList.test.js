@@ -1,4 +1,3 @@
-
 const TasksList = require("../../components/TasksList");
 const priority = require("../../components/TaskPriority");
 const Task = require("../../components/Task");

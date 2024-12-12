@@ -6,9 +6,9 @@ class TasksList {
     /**
      * Initialise une liste de tâches avec un titre et un tableau de tâches
      * 
-     * @param {title} Le titre de la liste (Type des tâches)
+     * @param title Le titre de la liste (Type des tâches)
      */
-    constructor(title) {
+    constructor(title = TaskPriority.Normal) {
         this.title = title;
         this.tasks = new Array();
     }
