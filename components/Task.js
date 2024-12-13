@@ -18,11 +18,13 @@ class Task {
         return this.priority;
     }
 
-    setName(taskName) {
+    set setName(taskName) {
+        // if (typeof(taskName) == String) {
         this.name = taskName;
     }
 
-    setPriority(taskPriority) {
+    set setPriority(taskPriority) {
+        // if (typeof(taskPriority) == TaskPriority) {
         this.priority = taskPriority;
     }
 

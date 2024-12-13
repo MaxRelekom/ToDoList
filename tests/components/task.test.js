@@ -27,8 +27,8 @@ describe.each(
     ]
 )('Task modification', ({ t, expected }) => {
     test('Test sur la modification de la tâche', () => {
-        t.setName("Nouvelle tâche");
-        t.setPriority(priority.Accessoire);
+        t.setName = "Nouvelle tâche";
+        t.setPriority = priority.Accessoire;
 
         expect(t).toEqual(expected);
     });
@@ -38,7 +38,7 @@ describe.each(
         t.setPriority(10);
 
         expect(t).not.toEqual(expected);
-        expect(t.getName).not.toEqual(10);
-        expect(t.getPriority).not.toEqual(10);
+        expect(t.getName).not.toBe(10);
+        expect(t.getPriority).not.toBe(10);
     });
 });

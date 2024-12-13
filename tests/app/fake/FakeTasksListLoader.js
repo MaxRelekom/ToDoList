@@ -13,6 +13,10 @@ class FakeTasksListLoader extends TasksListLoader {
         return super.loadTasksList();
     }
 
+    save(task) {
+        return super.save(task);
+    }
+
 }
 
 module.exports = FakeTasksListLoader;
