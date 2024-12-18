@@ -11,7 +11,7 @@ describe('TasksList initalisation', () => {
     });
 });
 
-describe.skip('TasksList add', () => {
+describe('TasksList add', () => {
     test("Add 3 tasks to taskslist", () => {
         const list = new TasksList(priority.Important);
 

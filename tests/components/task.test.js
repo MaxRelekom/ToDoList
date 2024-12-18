@@ -34,8 +34,8 @@ describe.each(
     });
 
     test.skip('Test sur la mauvaise modification de la tâche', () => {
-        t.setName(10);
-        t.setPriority(10);
+        t.setName = 10;
+        t.setName = 10;
 
         expect(t).not.toEqual(expected);
         expect(t.getName).not.toBe(10);

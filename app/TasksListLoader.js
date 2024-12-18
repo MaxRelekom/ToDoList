@@ -1,3 +1,4 @@
+const Task = require("../components/Task");
 const TasksList = require("../components/TasksList");
 
 /**
@@ -5,9 +6,7 @@ const TasksList = require("../components/TasksList");
  * Un fichier = Une liste de de données
  */
 class TasksListLoader {
-
-    #tasksList;
-
+    
     /** 
      * @param name Le titre d'une liste de tâches (Une Priority)
      * @param paths Le chemin des dossiers du fichier
@@ -19,28 +18,46 @@ class TasksListLoader {
         // Récupérer le chemin complet du fichier
         paths.push(fileName);
         this.file = paths.join('/');
+
+        this.list = new TasksList(this.name);
     }
 
     /**
      * @return La liste des tâches extraite
      */
     loadTasksList() {
-        // Extraire les tâches du fichier
-        // Créer la liste de tâches à partir des données
-        this.#tasksList = new TasksList(this.name);
-        return this.#tasksList;
+        // Création du tableau pour récupérer les tâches
+        const extractedTasks = new Array();
+
+        // Récupérer les tâches (sous forme d'Object) du fichier JSON
+        fetch(this.file)
+        .then(res => res.json())
+        .then(data => {
+            extractedTasks.push(data);
+        });
+       
+        // Modification du tableau d'Objects en tableau de Tasks
+        extractedTasks.forEach(o => {
+            const taskName = o.name;
+            const taskPriority = o.priority;
+            const taskDate = o.dateCreation;
+
+            const task = new Task(taskName, taskPriority, taskDate);
+            
+            // Ajouter chaque tâche à la liste
+            this.list.add(task);
+        });
+
+        // Retourner la liste
+        return this.list;
     }
 
     /**
      * @param task: La tâche à stocker dans la liste 
      */
     save(task) {
-        // Ajuter la tâche dans la liste
+        // Ajouter la tâche dans la liste
     
-    }
-
-    getName() {
-        return this.file;
     }
 
 }
