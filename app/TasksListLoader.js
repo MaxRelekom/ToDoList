@@ -1,9 +1,11 @@
 const Task = require("../components/Task");
 const TasksList = require("../components/TasksList");
 
+const { readFileSync } = require("fs");
+
 /**
  * Extrait les tâches d'un fichier nommé et crée une liste à partir de celles-ci.
- * Un fichier = Une liste de de données
+ * Un fichier = Une liste de données
  */
 class TasksListLoader {
     
@@ -14,7 +16,7 @@ class TasksListLoader {
      */
     constructor(name, paths, fileName) {
         this.name = name;
-
+    
         // Récupérer le chemin complet du fichier
         paths.push(fileName);
         this.file = paths.join('/');
@@ -23,42 +25,35 @@ class TasksListLoader {
     }
 
     /**
-     * @return La liste des tâches extraite
+     * @return La liste des tâches extraites
      */
     loadTasksList() {
-        // Création du tableau pour récupérer les tâches
-        const extractedTasks = new Array();
+        const tab = JSON.parse(readFileSync(this.file, 'utf-8'));
 
-        // Récupérer les tâches (sous forme d'Object) du fichier JSON
-        fetch(this.file)
-        .then(res => res.json())
-        .then(data => {
-            extractedTasks.push(data);
-        });
-       
-        // Modification du tableau d'Objects en tableau de Tasks
-        extractedTasks.forEach(o => {
-            const taskName = o.name;
-            const taskPriority = o.priority;
-            const taskDate = o.dateCreation;
-
-            const task = new Task(taskName, taskPriority, taskDate);
+        tab.forEach(element => {
+            // Création de la tâche
+            const taskName = element.name;
+            const taskPriority = element.priority;
+            const taskDate = element.dateCreation;
             
-            // Ajouter chaque tâche à la liste
+            const task = new Task(taskName, taskPriority, taskDate);
+
+            // Ajout de la tâche à la liste
             this.list.add(task);
         });
 
-        // Retourner la liste
         return this.list;
     }
 
     /**
+     * Ajoute la tâche dans la liste
+     * 
      * @param task: La tâche à stocker dans la liste 
      */
     save(task) {
-        // Ajouter la tâche dans la liste
-    
     }
+
+    get getList() { return this.list; }
 
 }
 

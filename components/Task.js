@@ -5,35 +5,21 @@ class Task {
     constructor(name = "Tâche", priority = TaskPriority.Normal, dateCreation = new Date(2000, 1, 1)) {
         this.name = name;
         this.priority = priority;
-
-        // Refactor dateCreation with month-1 => 0 = January
-        this.dateCreation = new Date(dateCreation.getFullYear(), dateCreation.getMonth() - 1, dateCreation.getDate());
+        this.date = dateCreation;
     }
 
-    get getName() {
-        return this.name;
-    }
+    get getName() { return this.name; }
+    get getPriority() { return this.priority; }
 
-    get getPriority() {
-        return this.priority;
-    }
+    set setName(taskName) { this.name = taskName; }
+    set setPriority(taskPriority) { this.priority = taskPriority; }
 
-    set setName(taskName) {
-        // if (typeof(taskName) == String) {
-        this.name = taskName;
-    }
-
-    set setPriority(taskPriority) {
-        // if (typeof(taskPriority) == TaskPriority) {
-        this.priority = taskPriority;
-    }
-
-    getDate() {
-        const year = this.dateCreation.getFullYear();
-        const month = this.dateCreation.toLocaleString("default", { month: "long"});
-        const day = this.dateCreation.getDate();
+    getCreationDate() {
+        const year = this.date.getFullYear();
+        const month = this.date.getMonth();
+        const day = this.date.getDate();
         
-        return `${day} ${month} ${year}`;
+        return `${day}-${month}-${year}`;
     }
   
 }

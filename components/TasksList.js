@@ -1,4 +1,3 @@
-const Task = require("./Task");
 const TaskPriority = require("./TaskPriority");
 
 class TasksList {

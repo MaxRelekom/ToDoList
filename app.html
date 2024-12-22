@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="index.js" async></script>
     <title>ToDo List</title>
 </head>
 <body>
@@ -12,16 +13,6 @@
     </header>
     
     <main>
-
-        <script>
-            
-        fetch('fakeDatas/tasksLists/normalTasks.json')
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        });
-
-        </script>
         <section class="toDoList-section row">
             <div class="urgent-tasks">
                 <h2 class="title">Urgent</h2>
@@ -33,7 +24,7 @@
                 </ul>
             </div>
 
-            <div class="important-tasks">
+            <div id = "test" class="important-tasks">
                 <h2 class="title">Important</h2>
                 
                 <ul>

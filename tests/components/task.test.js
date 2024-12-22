@@ -3,8 +3,8 @@ const priority = require("../../components/TaskPriority");
 
 describe.each(
     [
-        { t: new Task("Tâche 1", priority.Normal, new Date(2024, 11, 28)), expected: [ "Tâche 1", "Normal", "28 novembre 2024" ] },
-        { t: new Task(), expected: [ "Tâche", "Normal", "1 janvier 2000" ] }
+        { t: new Task("Tâche 1", priority.Normal, new Date(2024, 11, 28)), expected: [ "Tâche 1", "Normal", "28-11-2024" ] },
+        { t: new Task(), expected: [ "Tâche", "Normal", "1-1-2000" ] }
     ]
 )('Task initalisation', ({ t, expected }) => {
     test('Test sur le nom de la tâche', () => {
@@ -16,7 +16,7 @@ describe.each(
     });
 
     test('Test sur la date de la tâche', () => {
-        expect(t.getDate()).toBe(expected[2]);
+        expect(t.getCreationDate()).toBe(expected[2]);
     });
 });
 
